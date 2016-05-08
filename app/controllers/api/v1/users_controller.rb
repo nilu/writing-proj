@@ -2,10 +2,15 @@ class Api::V1::UsersController < Api::V1::BaseController
   before_filter :authenticate_user!, :except => [:create, :show]
 
   def show
+    pp "!"*60
+    pp current_user
+    pp "@"*60
     render :json => {:info => "Current User", :user => current_user}, :status => 200
   end
 
   def create
+    pp "#"*60
+    pp params
     @user = User.create(user_params)
     if @user.valid?
       sign_in(@user)
@@ -26,6 +31,6 @@ class Api::V1::UsersController < Api::V1::BaseController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation)
+    params.require(:user).permit(:email, :password, :password_confirmation, :user_type)
   end
 end

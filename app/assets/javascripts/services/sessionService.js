@@ -25,8 +25,8 @@ angular.module('sessionService', [])
                 });
             },
 
-            register: function(email, password, confirm_password) {
-                return $http.post('/api/users', {user: {email: email, password: password, password_confirmation: confirm_password} })
+            register: function(email, password, confirm_password, user_type) {
+                return $http.post('/api/users', {user: {email: email, password: password, password_confirmation: confirm_password, user_type: user_type} })
                 .then(function(response) {
                     service.currentUser = response.data;
                     if (service.isAuthenticated()) {
