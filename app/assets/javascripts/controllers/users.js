@@ -21,7 +21,7 @@ function UsersCtrl($scope, Session) {"use strict";
     $scope.register = function(user) {
         $scope.authError = null;
 
-        Session.register(user.email, user.password, user.confirm_password)
+        Session.register(user.email, user.password, user.confirm_password, user.user_type)
             .then(function(response) {
                console.log(response);
             }, function(response) {

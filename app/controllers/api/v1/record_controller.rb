@@ -2,10 +2,12 @@ class Api::V1::RecordController < Api::V1::BaseController
   before_filter :authenticate_user!
 
   def index 
+    pp "0"*60
     respond_with(Record.all)
   end
 
   def show
+    pp '1'*60
     @data = Record.find(params[:id]).to_json()
     respond_with(@data)
   end
