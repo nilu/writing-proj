@@ -19,7 +19,7 @@ gem 'nokogiri'
 gem 'devise', '~> 3.2'
 gem 'json'
 
-gem 'raddocs'
+# gem 'raddocs'
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
