@@ -6,11 +6,12 @@
 //= require angular-resource
 //= require services/sessionService
 //= require services/recordService
+//= require services/projectService
 //= require controllers/app
 //= require controllers/record
 //= require controllers/users
 
-angular.module('radd', ['sessionService','recordService','$strap.directives'])
+angular.module('radd', ['sessionService','recordService', 'projectService', '$strap.directives'])
   .config(['$httpProvider', function($httpProvider){
         $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
 

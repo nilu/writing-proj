@@ -4,7 +4,7 @@ class Api::V1::UsersController < Api::V1::BaseController
   def show
     pp "!"*60
     pp current_user
-    pp "@"*60
+    pp params
     render :json => {:info => "Current User", :user => current_user}, :status => 200
   end
 

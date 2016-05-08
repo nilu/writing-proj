@@ -3,6 +3,7 @@ class Api::V1::RecordController < Api::V1::BaseController
 
   def index 
     pp "0"*60
+    pp params
     respond_with(Record.all)
   end
 
