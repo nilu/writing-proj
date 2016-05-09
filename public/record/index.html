@@ -3,7 +3,10 @@
 <p>Welcome, {{user.email}} {{user.id}}</p> 
 
 <p ng-repeat="record in records">{{record.data}}</p>
-<p ng-repeat="project in projects">{{project.name}}</p>
+<p ng-repeat="project in projects">
+  <strong>Project:</strong> {{project.name}}, <strong>Access Code:</strong> {{project.access_code}}
+
+  </p>
 
 <form name="newProjForm">
   <input type="text" class="input-block-level" placeholder="Project Name" ng-model="project.name" required autofocus>

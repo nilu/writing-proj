@@ -11,7 +11,7 @@ angular.module('projectService', ['ngResource'])
 
                 return $http.post('/api/project.json', {project: {name: name, teacher_id: teacher_id}})
                 .then(function(response) {
-                    alert('aiye');
+                    // alert('aiye');
                     var blah = console.log(response.data);
                     // This is cheating !
                     

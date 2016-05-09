@@ -33,5 +33,4 @@ class Api::V1::ProjectController < Api::V1::BaseController
     @project = Project.create(name: 'name')
   end
 
-
 end
