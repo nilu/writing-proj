@@ -61,6 +61,10 @@ Radd::Application.routes.draw do
       end
 
       resources :record
+      resources :project
+      get '/record' => 'project#test'
+
+      post '/join_project' => 'project#join'
 
       resources :users, only: [:create]
       match '/users' => 'users#show', :via => :get

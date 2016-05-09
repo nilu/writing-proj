@@ -1,7 +1,29 @@
 <p>You are a <strong>{{user.user_type}}</strong></p>
 
-<p>Welcome, {{user.email}}</p>
+<p>Welcome, {{user.email}}</p> 
 
-<p ng-repeat="record in records">{{record.data}}</p>
+<div ng-show="user.user_type == 'student'">
+  <h3>My Projects: </h3>
+  <p ng-repeat="project in projects">
+    <strong>Project:</strong> {{project.name}}, <strong>Teacher ID: </strong> {{project.user_id}}
 
+    <form name="joinProjForm">
+      <input type="text" class="input-block-level" placeholder="Project Access Code" ng-model="project.access_code" required autofocus>
+      <a class="btn btn-success" type="submit" ng-click="joinProj(user.id, project.access_code)" ng-disabled="joinProjForm.$invalid">Join a Project</a>
+    </form>
+  </p>
+
+</div>
+
+
+<div ng-show="user.user_type == 'teacher'">
+  <p ng-repeat="project in projects">
+    <strong>Project:</strong> {{project.name}}, <strong>Access Code:</strong> {{project.access_code}}
+  </p>
+
+  <form name="newProjForm">
+    <input type="text" class="input-block-level" placeholder="Project Name" ng-model="project.name" required autofocus>
+    <a class="btn btn-success" type="submit" ng-click="newProj(user.id, project.name)" ng-disabled="newProjForm.$invalid">Create new Proj</a>
+  </form>
+</div>
 <a class="btn btn-primary" ng-click="logout()">Logout</a>

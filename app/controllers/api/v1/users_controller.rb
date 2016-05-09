@@ -4,7 +4,7 @@ class Api::V1::UsersController < Api::V1::BaseController
   def show
     pp "!"*60
     pp current_user
-    pp "@"*60
+    pp params
     render :json => {:info => "Current User", :user => current_user}, :status => 200
   end
 
@@ -12,7 +12,17 @@ class Api::V1::UsersController < Api::V1::BaseController
     pp "#"*60
     pp params
     @user = User.create(user_params)
+
+    pp "~"*60
+    pp access_code = params['project']['access_code'] 
+
+
     if @user.valid?
+      pp "*"*60
+      pp project = Project.find_by_access_code(access_code)
+      
+      @user.projects << project if project
+
       sign_in(@user)
       respond_with @user, :location => api_users_path
     else
