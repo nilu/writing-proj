@@ -5,8 +5,12 @@ gem 'rails', '4.2.0'
 gem 'pg'
 gem 'thin'
 
+
+gem 'foreman'
 group :production do
   gem 'rails_12factor'
+  gem "rails_stdout_logging"
+  gem "rails_serve_static_assets"
 end
 
 group :assets do
