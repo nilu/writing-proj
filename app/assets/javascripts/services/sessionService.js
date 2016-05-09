@@ -18,6 +18,7 @@ angular.module('sessionService', [])
             },
 
             logout: function(redirectTo) {
+                alert('logging out..');
                 $http.delete('/api/sessions').then(function(response) {
                     $http.defaults.headers.common['X-CSRF-Token'] = response.data.csrfToken;
                     service.currentUser = null;
