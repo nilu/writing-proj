@@ -9,14 +9,22 @@ angular.module('projectService', ['ngResource'])
                 console.log(teacher_id);
                 console.log(name);
 
-                return $http.post('/api/project.json', {project: {name: name, teacher_id: teacher_id}})
+                return $http.post('/api/join_project.json', {project: {name: name, teacher_id: teacher_id}})
                 .then(function(response) {
                     // alert('aiye');
-                    var blah = console.log(response.data);
+                    // var blah = console.log(response.data);
                     // This is cheating !
                     
                     location.reload();
                     return response.data;
+                });
+            },
+
+            join_proj: function(user_id, access_code) {
+                return $http.post('/api/join_project.json', {user_id: user_id, access_code: access_code})
+                .then(function(response) {
+                    location.reload();
+                    return;
                 });
             },
 
@@ -29,13 +37,5 @@ angular.module('projectService', ['ngResource'])
         }
 
         return project;
-
-        // return $resource('/api/project.json', {}, {
-        //     index: { method: 'GET', isArray: true},
-        //     create: { method: 'POST' },
-        //     test: { method: 'GET', isArray: true},
-        //     new_proj: { method: 'POST'}
-
-        // });
     });
     

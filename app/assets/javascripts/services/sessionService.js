@@ -38,6 +38,7 @@ angular.module('sessionService', [])
                     }
                 });
             },
+            
             requestCurrentUser: function() {
                 if (service.isAuthenticated()) {
                     return $q.when(service.currentUser);

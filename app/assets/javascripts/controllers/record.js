@@ -12,14 +12,19 @@ function RecordCtrl($scope, Session, Records, Projects) {"use strict";
 
 
     $scope.newProj = function(user_id, name) {
-      // alert("creating new proj..");
-      // console.log($scope.user);
-      // console.log($scope.user.data);
-
-      console.log(user_id);
-      console.log(name);
+      // console.log(user_id);
+      // console.log(name);
 
       Projects.new_proj(user_id, name);
-    }
+    };
+
+    $scope.joinProj = function(user_id, access_code) {
+      console.log('!!!');
+      console.log(user_id);
+      console.log(access_code);
+
+      Projects.join_proj(user_id, access_code);
+
+    };
 }
 
