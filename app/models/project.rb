@@ -1,6 +1,7 @@
 class Project < ActiveRecord::Base
 
   belongs_to :user
+  has_and_belongs_to_many :users
 
   before_create :generate_access_code
 
