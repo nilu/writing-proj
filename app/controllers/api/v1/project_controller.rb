@@ -28,7 +28,7 @@ class Api::V1::ProjectController < Api::V1::BaseController
     pp user = User.find_by_id(params[:user_id])
     pp project = Project.find_by_access_code(params[:access_code])
 
-    if user && project
+    if user && project && !user.projects.find_by_access_code(params[:access_code])
       user.projects << project
     end
 
