@@ -1,5 +1,7 @@
 class Project < ActiveRecord::Base
 
+  belongs_to :user
+
   before_create :generate_access_code
 
   def generate_access_code
