@@ -7,6 +7,9 @@ angular.module('sessionService', [])
         }
         var service = {
             login: function(email, password) {
+                alert('logging in...');
+                alert(email);
+                alert(password);
                 return $http.post('/api/sessions', {user: {email: email, password: password} })
                     .then(function(response) {
                         service.currentUser = response.data.user;

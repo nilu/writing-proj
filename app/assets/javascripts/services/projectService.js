@@ -3,7 +3,7 @@ angular.module('projectService', ['ngResource'])
 
 
         var project = {
-            new_proj: function(teacher_id, name="testname") {
+            new_proj: function(teacher_id, name) {
                 // alert('in new prij');
                 console.log('in project Service');
                 console.log(teacher_id);
@@ -14,7 +14,8 @@ angular.module('projectService', ['ngResource'])
                     alert('aiye');
                     var blah = console.log(response.data);
                     // This is cheating !
-                    // location.reload();
+                    
+                    location.reload();
                     return response.data;
                 });
             },

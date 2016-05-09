@@ -4,6 +4,7 @@ function UsersCtrl($scope, Session) {"use strict";
 
         Session.login(user.email, user.password)
         .then(function(response) {
+            alert('logging in 0');
             if (!response) {
                 $scope.authError = 'Credentials are not valid';
             } else {

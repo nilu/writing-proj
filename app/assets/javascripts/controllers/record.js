@@ -11,22 +11,15 @@ function RecordCtrl($scope, Session, Records, Projects) {"use strict";
     };
 
 
-    $scope.newProj = function(user_id) {
+    $scope.newProj = function(user_id, name) {
       // alert("creating new proj..");
       // console.log($scope.user);
       // console.log($scope.user.data);
 
       console.log(user_id);
-      console.log('!!');
-      var $test = console.log($scope.user);
+      console.log(name);
 
-      console.log($scope.user['id']);
-
-
-      console.log('00');
-      console.log($scope.user)
-
-      Projects.new_proj(user_id);
+      Projects.new_proj(user_id, name);
     }
 }
 
